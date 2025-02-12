@@ -11,7 +11,7 @@ RUN corepack install
 RUN pnpm install --frozen-lockfile
 
 # Instalar pnpm e wrangler
-RUN pnpm install -g wrangler
+RUN npm install -g wrangler
 
 # Instalar dependências
 # RUN pnpm install
