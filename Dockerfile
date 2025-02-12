@@ -2,10 +2,6 @@ FROM node:20.18.0
 
 WORKDIR /app
 
-# Instalar pnpm e wrangler
-RUN corepack enable pnpm && \
-    pnpm install -g wrangler
-
 # Copiar arquivos de dependências
 COPY package.json pnpm-lock.yaml ./
 
@@ -14,8 +10,11 @@ ENV COREPACK_DEFAULT_TO_LATEST=0
 RUN corepack install
 RUN pnpm install --frozen-lockfile
 
+# Instalar pnpm e wrangler
+RUN pnpm install -g wrangler
+
 # Instalar dependências
-RUN pnpm install
+# RUN pnpm install
 
 # Copiar código  fonte e scripts
 COPY . .
