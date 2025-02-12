@@ -2,14 +2,14 @@ FROM node:20.18.0
 
 WORKDIR /app
 
-RUN pnpm i -g corepack@latest
-
 # Instalar pnpm e wrangler
 RUN corepack enable pnpm && \
     npm install -g wrangler
 
 # Copiar arquivos de dependências
 COPY package.json pnpm-lock.yaml ./
+
+RUN pnpm i -g corepack@latest
 
 # Instalar dependências
 RUN pnpm install
