@@ -21,6 +21,7 @@ services:
       - AWS_BEDROCK_CONFIG=${AWS_BEDROCK_CONFIG}
       - VITE_LOG_LEVEL=${VITE_LOG_LEVEL:-debug}
       - DEFAULT_NUM_CTX=${DEFAULT_NUM_CTX:-32768}
+      - PHP_MEMORY_LIMIT=256M
     restart: unless-stopped
 
   app-dev:
@@ -75,6 +76,7 @@ services:
       - OLLAMA_API_BASE_URL=http://127.0.0.1:11434
       - DEFAULT_NUM_CTX=${DEFAULT_NUM_CTX:-32768}
       - RUNNING_IN_DOCKER=true
+      - PHP_MEMORY_LIMIT=256M
     extra_hosts:
       - "host.docker.internal:host-gateway"
     command: pnpm run dockerstart
