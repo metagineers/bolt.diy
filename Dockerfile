@@ -24,6 +24,8 @@ RUN tr -d '\r' < bindings.sh > bindings.tmp && \
     mv bindings.tmp bindings.sh && \
     chmod +x bindings.sh
 
+ENV GENERATE_SOURCEMAP=false
+
 # Build da aplicação
 RUN pnpm run build
 
