@@ -8,10 +8,11 @@ COPY package.json pnpm-lock.yaml ./
 RUN corepack enable
 ENV COREPACK_DEFAULT_TO_LATEST=0
 RUN corepack install
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 
 # Instalar pnpm e wrangler
-RUN npm install -g wrangler
+RUN pnpm setup
+RUN pnpm install -g wrangler
 
 # Instalar dependências
 # RUN pnpm install
