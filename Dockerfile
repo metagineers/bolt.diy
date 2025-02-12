@@ -25,7 +25,7 @@ RUN tr -d '\r' < bindings.sh > bindings.tmp && \
     chmod +x bindings.sh
 
 # ENV GENERATE_SOURCEMAP=false
-ENV NODE_OPTIONS=--max_old_space_size=2048
+ENV NODE_OPTIONS=--max_old_space_size=3072
 
 # Build da aplicação
 RUN pnpm run build
